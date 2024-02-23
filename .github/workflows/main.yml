@@ -29,5 +29,5 @@ jobs:
       env:
         IMAGE: ${{ secrets.REGISTRY_NAME }}/api:${{ github.sha }}
         NAME: api
-      run: |
-        kubectl set image deployment/${{ env.NAME }} ${env.NAME}=${env.IMAGE} --record
+        run: |
+          kubectl set image deployment/${{ env.NAME }} ${env.NAME}=${env.IMAGE} --record
