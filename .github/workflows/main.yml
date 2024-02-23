@@ -34,8 +34,7 @@ jobs:
     
     - name: Deploy to local Kubernetes
       run: |
-        ls ./
-        kubectl apply -f Django-API/Django-API/manifest
+        kubectl apply -f ./manifest
     - name: Get LoadBalancer IP
       run: |
         kubectl get nodes
