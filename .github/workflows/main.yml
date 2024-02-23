@@ -32,10 +32,7 @@ jobs:
       uses: azure/k8s-set-context@v1
       with:
         kubeconfig: ${{ secrets.KUBE_CONFIG_DATA }}
-        namespace: default
-        manifests: |
-          deployment.yaml
-          service.yaml
+        
       env:
         IMAGE: rachitpmsl/api:${{ github.sha }}
         NAME: api
