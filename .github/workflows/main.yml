@@ -32,9 +32,10 @@ jobs:
       uses: azure/k8s-set-context@v1
       with:
         kubeconfig: ${{ secrets.KUBE_CONFIG_DATA }}
-        
+
       env:
         IMAGE: rachitpmsl/api:${{ github.sha }}
         NAME: api
         run: |
           kubectl set image deployment/${{ env.NAME }} ${env.NAME}=${env.IMAGE} --record
+          kubectl apply -f Django-API/manifests
