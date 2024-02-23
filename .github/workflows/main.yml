@@ -39,3 +39,7 @@ jobs:
         run: |
           kubectl set image deployment/${{ env.NAME }} ${env.NAME}=${env.IMAGE} --record
           kubectl apply -f Django-API/manifests
+    - name: Check API accessibility
+      run: |
+        kubectl get svc
+      continue-on-error: true
