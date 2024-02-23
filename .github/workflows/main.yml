@@ -34,6 +34,8 @@ jobs:
     
     - name: Deploy to local Kubernetes
       run: |
+        kubectl cluster-info
+        kubectl config use-context docker-desktop
         kubectl apply -f ./manifest
     - name: Get LoadBalancer IP
       run: |
