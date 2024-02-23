@@ -39,7 +39,8 @@ jobs:
         run: |
           kubectl set image deployment/${{ env.NAME }} ${env.NAME}=${env.IMAGE} --record
           kubectl apply -f Django-API/manifests
-    - name: Check API accessibility
+          
+    - name: Get LoadBalancer IP
       run: |
-        kubectl get svc
-      continue-on-error: true
+        kubectl get svc ${{ env.NAME }} -o jsonpath='{.status.loadBalancer.ingress[0].ip}'
+      id: lb_ip
