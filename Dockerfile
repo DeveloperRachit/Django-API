@@ -5,6 +5,10 @@ ENV PYTHONUNBUFFERED=1
 WORKDIR /api
 
 COPY requirements.txt ./
+# Install core dependencies.
+RUN apt-get update && apt-get install -y libpq-dev build-essential
+
+
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
