@@ -34,6 +34,7 @@ jobs:
     
     - name: Deploy to local Kubernetes
       run: |
+        export KUBECONFIG=$HOME/.kube/config
         kubectl cluster-info
         kubectl config use-context docker-desktop
         kubectl apply -f ./manifest
