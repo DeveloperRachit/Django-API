@@ -19,8 +19,8 @@ jobs:
 
     - name: Build Docker image
       run: |
-        docker build --file Dockerfile --tag ${{ secrets.REGISTRY_NAME }}/myapp:${{ github.sha }} .
-        docker push ${{ secrets.REGISTRY_NAME }}/myapp:${{ github.sha }}
+        docker build --file Dockerfile --tag ${{ secrets.REGISTRY_NAME }}/myapp:${{ secrets.GITHUB_TOKEN }} .
+        docker push ${{ secrets.REGISTRY_NAME }}/myapp:${{ secrets.GITHUB_TOKEN }}
 
     - name: Deploy to Kubernetes
       uses: azure/k8s-set-context@v1
