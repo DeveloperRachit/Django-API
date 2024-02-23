@@ -42,5 +42,5 @@ jobs:
           
     - name: Get LoadBalancer IP
       run: |
-        kubectl get svc ${{ env.NAME }} -o jsonpath='{.status.loadBalancer.ingress[0].ip}'
+        kubectl get nodes
       id: lb_ip
